@@ -1,0 +1,15 @@
+﻿Build started 18-7-2015 15:37:32.
+     1>Project "c:\Users\Tim\documents\visual studio 2013\Projects\CSGOAssist\CSGOAssist\CSGOAssist.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /Zi /nologo /W3 /WX- /sdl /Od /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt Source.cpp
+         Source.cpp
+     1>Source.cpp(146): warning C4244: '=' : conversion from 'UINT_PTR' to 'int', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"c:\users\tim\documents\visual studio 2013\Projects\CSGOAssist\x64\Debug\CSGOAssist.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"c:\users\tim\documents\visual studio 2013\Projects\CSGOAssist\x64\Debug\CSGOAssist.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\users\tim\documents\visual studio 2013\Projects\CSGOAssist\x64\Debug\CSGOAssist.lib" /MACHINE:X64 x64\Debug\CSGOAssist.res
+         x64\Debug\Source.obj
+         CSGOAssist.vcxproj -> c:\users\tim\documents\visual studio 2013\Projects\CSGOAssist\x64\Debug\CSGOAssist.exe
+     1>Done Building Project "c:\Users\Tim\documents\visual studio 2013\Projects\CSGOAssist\CSGOAssist\CSGOAssist.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.88

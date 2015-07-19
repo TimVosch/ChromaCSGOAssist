@@ -1,26 +1,32 @@
 #include <Windows.h>
 #include <stdio.h>
+#include <sstream>
 #include <RzChromaSDKDefines.h>
 #include <RzChromaSDKTypes.h>
 #include <RzErrors.h>
 
+#ifdef _WIN64
+#define CHROMASDKDLL        L"RzChromaSDK64.dll"
+#else
+#define CHROMASDKDLL        L"RzChromaSDK.dll"
+#endif
 
 using namespace ChromaSDK;
 using namespace ChromaSDK::Keyboard;
 
 HMODULE chromaSDK;
 typedef RZRESULT(*INIT)(void);
-typedef RZRESULT(*CREATEGRIDEFFECT)(CUSTOM_GRID_EFFECT_TYPE *pCustomEffects, RZEFFECTID *pEffectId);
+typedef RZRESULT(*CREATEGRIDEFFECT)(CUSTOM_GRID_EFFECT_TYPE pCustomEffects, RZEFFECTID *pEffectId);
 typedef RZRESULT(*CREATEEFFECT)(RZSIZE numKeys, CUSTOM_KEY_EFFECT_TYPE *pCustomEffects, RZEFFECTID *pEffectId);
 CREATEGRIDEFFECT createGridEffect;
 CREATEEFFECT createEffect;
-CUSTOM_GRID_EFFECT_TYPE Grid = {};
+CUSTOM_GRID_EFFECT_TYPE Grid;
 float countDown = 0;
 int BombCountdownTimer;
 bool isTimerActive = false;
 
 bool loadChromaSDK(){
-	chromaSDK = LoadLibrary(L"RzChromaSDK64.dll");				//First we load the library into our memory
+	chromaSDK = LoadLibrary(CHROMASDKDLL);				//First we load the library into our memory
 	if (chromaSDK){												//If 'chromaSDK' does not equals NULL then we've loaded the library succesfull, atleast as far as we know for now.
 		INIT init = (INIT)GetProcAddress(chromaSDK, "Init");	//We try to get the address of Init ¿function? from the dll
 		if (init){												//If that was succesful
@@ -49,7 +55,7 @@ void setStaticColor(COLORREF color){ //Cycle through every key to set one color;
 }
 
 void setCustomEffect(){
-	createGridEffect(&Grid, NULL);
+	createGridEffect(Grid, NULL);
 }
 
 void resetKeyboardEffect(){
@@ -105,6 +111,8 @@ void updateCountdownVisuals(){
 }
 
 int main(){
+
+	CUSTOM_GRID_EFFECT_TYPE Grid = {};
 
 	printf("\t>> Make sure you CLOSE Razer Synapse or the software will NOT work!\n");
 	if (!loadChromaSDK()){ //Try and execute the function above, that returns true if succeeded or false if failed.

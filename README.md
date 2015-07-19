@@ -14,6 +14,12 @@ Welcome to the github repo for the CSGO Assist. In it's current state this only 
  * [The Razer Chroma SDK](http://developer.razerzone.com/chroma/download/)
  * Visual Studio (To compile)
 
+###How to convert to 32Bit
+ * Change the DLL that get loaded **LoadLibrary(...)** to **RzChromaSDK.dll**
+ * Next to the run button you click on the dropdown menu that says: **x64** and you change it to **win32** or something similar.
+ * You can run it to see if it works, and then change build to release and build the project.
+ * You should now have a called **release** and there will be your 32-bit **CSGOAssist.exe**
+
 ###How it works
 This software is made with a (close to) perfect timer for the bomb to explode, when you hear "*Bomb has been planted*" you press ALT+W to start the countdown.
 
@@ -27,6 +33,9 @@ The *F1 through F12 + PrtSc + ScrLk + Pause/Break* key lights depletes as the ti
  * Yes I do have a website but it's not yet finished
  * I do also have a Minecraft project in development, where the keyboard acts as a health/hunger/air bar and has a compass included + more.
  
+
+----------
+
 
 This project is licensed under the MIT license:
 *The MIT License (MIT)*

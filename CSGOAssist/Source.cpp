@@ -28,7 +28,7 @@ bool isTimerActive = false;
 bool loadChromaSDK(){
 	chromaSDK = LoadLibrary(CHROMASDKDLL);				//First we load the library into our memory
 	if (chromaSDK){												//If 'chromaSDK' does not equals NULL then we've loaded the library succesfull, atleast as far as we know for now.
-		INIT init = (INIT)GetProcAddress(chromaSDK, "Init");	//We try to get the address of Init ¿function? from the dll
+		INIT init = (INIT)GetProcAddress(chromaSDK, "Init");	//We try to get the address of Init Â¿function? from the dll
 		if (init){												//If that was succesful
 			RZRESULT result = init();							//Then we execute it to initialize the keyboard, By now the keyboard should've gone dark.
 			if (result == RZRESULT_SUCCESS){					//If the initialization was succesful then...
@@ -40,8 +40,8 @@ bool loadChromaSDK(){
 }
 
 bool loadChromaSDKFunctions(){
-	createGridEffect = (CREATEGRIDEFFECT)GetProcAddress(chromaSDK, "CreateKeyboardCustomGridEffects"); //Get the ¿function? to create per key effects.
-	createEffect = (CREATEEFFECT)GetProcAddress(chromaSDK, "CreateKeyboardCustomEffects"); //Get the ¿function? to create per key effects.
+	createGridEffect = (CREATEGRIDEFFECT)GetProcAddress(chromaSDK, "CreateKeyboardCustomGridEffects"); //Get the Â¿function? to create per key effects.
+	createEffect = (CREATEEFFECT)GetProcAddress(chromaSDK, "CreateKeyboardCustomEffects"); //Get the Â¿function? to create per key effects.
 	if (createEffect && createGridEffect) //If it does not equal NULL then we succeeded!
 		return true;
 	return false;
@@ -116,7 +116,7 @@ int main(){
 
 	printf("\t>> Make sure you CLOSE Razer Synapse or the software will NOT work!\n");
 	if (!loadChromaSDK()){ //Try and execute the function above, that returns true if succeeded or false if failed.
-		printf("#ERROR > Failed to load the chroma SDK maybe you're on a 32 bit system?\n");
+		printf("#ERROR > Failed to load the chroma SDK make sure you have it installed!\n");
 		getchar();
 		return 1;
 	}
